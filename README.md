@@ -6,7 +6,7 @@ This version of the code is multithreaded because I'm impatient and can't wait f
 
 ##Why?
 
-I like learning different things about programming and 3D which for years, and I mean 20 years or more, I've been facinated by the images that get produced by a good ray trace engine!  Just look at what Pixar does with RenderMan.  I've also been a hobbiest 3D modeler and though what fun writing a ray tracer could be.
+I like learning different things about programming and 3D which for years, and I mean 20 years or more, I've been facinated by the images that get produced by a good ray trace engine!  Just look at what Pixar does with RenderMan.  I've also been a hobbiest 3D modeler and thought what fun writing a ray tracer could be.
 
 ## Fun Stuff
 
@@ -21,6 +21,10 @@ As I progress more into the ray tracer book series hopefully more textures will 
 ### Multithreading
 
 Since this is a feature of the engine I wanted to give some background to how it was attained.  Currently the only thread support is for windows based computers.  I'm using the function _beginthreadex which is in the windows.h definition file.  I do plan on migrating this to a different thread system when time permits so that it will work on Linux or Mac OSX but this isn't a priority for me at this time.
+
+### Main.cpp
+
+The main.cpp file contains some basic code and some settings for the image rendering process.  The settings some be self explanitory but if you need help understading something please feel free to ask.
 
 ## The World
 
