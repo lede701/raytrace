@@ -118,6 +118,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Dielectric.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityKey.h" />
     <ClInclude Include="Hitable.h" />
     <ClInclude Include="HitList.h" />
     <ClInclude Include="HitRecord.h" />

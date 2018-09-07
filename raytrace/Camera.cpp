@@ -10,7 +10,7 @@ Camera::Camera()
 	lowerLeftCorner = Vec3(-2.0f, -1.0f, -1.0f);
 	horizontal = Vec3(4.0f, 0.0f, 0.0f);
 	vertical = Vec3(0.0f, 2.0f, 0.0f);
-	origin = Vec3(0.0, 0.0, 0.0);
+	origin = Vec3(0.0f, 0.0f, 0.0f);
 }
 
 Camera::Camera(float vFov, float aspect)

@@ -78,7 +78,7 @@ Hitable* Imager::RandomScene(int size)
 				}
 				else if(material < 0.95f)
 				{
-					list[i++] = new Sphere(center, r, new Metal(Vec3(0.5*(1 + drand48()), 0.5*(1 + drand48()), 0.5*(1 + drand48())), 0.5f*drand48()));
+					list[i++] = new Sphere(center, r, new Metal(Vec3(0.5f*(1 + drand48()), 0.5f*(1 + drand48()), 0.5f*(1 + drand48())), 0.5f*drand48()));
 				}
 				else
 				{
@@ -138,6 +138,7 @@ void Imager::Render(std::string file)
 		_beginthreadex(0, 0, &Imager::ImagerThread, this, 0, 0);
 	}
 	RenderThread();
+	std::cout << std::endl;
 
 	std::cout << "Writting to file" << std::endl;
 	std::ofstream fout(file);

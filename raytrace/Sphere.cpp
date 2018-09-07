@@ -20,7 +20,8 @@ Sphere::~Sphere()
 
 bool Sphere::hit(const Ray& r, float t_min, float t_max, HitRecord& hit) const
 {
-	Vec3 oc = r.origin() - _position;
+	Vec3 pos = KeyFrames[CurrentKey]->position;
+	Vec3 oc = r.origin() - pos;
 	float a = dot(r.direction(), r.direction());
 	float b = dot(oc, r.direction());
 	float c = dot(oc, oc) - radius * radius;
@@ -32,7 +33,7 @@ bool Sphere::hit(const Ray& r, float t_min, float t_max, HitRecord& hit) const
 		{
 			hit.t = tmp;
 			hit.p = r.point_at_parameter(hit.t);
-			hit.normal = (hit.p - _position) / radius;
+			hit.normal = (hit.p - pos) / radius;
 			hit.pMat = pMat;
 			return true;
 		}
@@ -41,7 +42,7 @@ bool Sphere::hit(const Ray& r, float t_min, float t_max, HitRecord& hit) const
 		{
 			hit.t = tmp;
 			hit.p = r.point_at_parameter(hit.t);
-			hit.normal = (hit.p - _position) / radius;
+			hit.normal = (hit.p - pos) / radius;
 			hit.pMat = pMat;
 			return true;
 		}

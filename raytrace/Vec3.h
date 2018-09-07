@@ -10,6 +10,7 @@ public:
 
 	Vec3();
 	Vec3(float e0, float e1, float e2);
+	//Vec3(int e0, int e1, int e2);
 
 	~Vec3();
 

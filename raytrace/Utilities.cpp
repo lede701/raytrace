@@ -17,7 +17,7 @@ Vec3 RandomInUnitDisk()
 	Vec3 p;
 	do
 	{
-		p = 2.0*Vec3(drand48(), drand48(), 0) - Vec3(1, 1, 0);
+		p = 2.0f*Vec3(drand48(), drand48(), 0.0f) - Vec3(1.0f, 1.0f, 0.0f);
 	} while ((dot(p, p) >= 1.0f));
 	return p;
 }

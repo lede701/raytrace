@@ -1,23 +1,22 @@
 #pragma once
-#include <list>
+#include <vector>
 #include "Vec3.h"
 #include "Ray.h"
 #include "HitRecord.h"
+#include "EntityKey.h"
 
 class Entity
 {
 public:
-	Vec3 _position;
-	Vec3 _rotation;
-	Vec3 _scale;
-
-	
+	int CurrentKey;
+	std::vector<EntityKey*> KeyFrames;
 
 	Entity();
 	Entity(Vec3 position, Vec3 rotation, Vec3 scale);
 	~Entity();
 
-	virtual bool AddKey();
+	bool Add(EntityKey* key);
+	bool Add(Vec3 position, Vec3 rotation, Vec3 scale);
 
 	virtual Vec3& Position();
 	virtual Vec3& Rotation();
