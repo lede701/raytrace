@@ -103,23 +103,28 @@ void Imager::Render(std::string file)
 	// Setup timing of render
 	auto start = std::chrono::high_resolution_clock::now();
 
+	// Calculate the number of initial rays to create
 	int imgCnt = width * height;
+	// Setup the color array to store results
 	aClr = new Vec3[imgCnt];
+	// Make sure the queue is empty
 	qVec.empty();
 
+	// Setup the percent of processing calulations
 	iComplete = 0;
 	nextStep = 2;
 	nextComplete = nextStep;
 
 	// Create world list
 	world = RandomScene(30);
+	// Setup camera
 	Vec3 lookFrom(13, 2, 3);
 	Vec3 lookAt(0, 1, 0);
 	float focalDist = 10.0f;
 	float aperture = 0.1f;
 	cam = Camera(lookFrom, lookAt, Vec3(0,1,0),20.0f, float(width)/float(height), aperture, focalDist);
 
-	std::cout << "Preping Render Engine" << std::endl;
+	std::cout << "Calculating initial rays" << std::endl;
 	for (int iy = height-1; iy >= y; -- iy)
 	{
 		for (int ix = x; ix < width; ++ix) {
@@ -127,11 +132,11 @@ void Imager::Render(std::string file)
 		}
 	}
 	std::cout << "Starting render engine" << std::endl;
+	// Create multiple threads to render world minus this thread
 	for (int t = 1; t < numThread; ++t) 
 	{
 		_beginthreadex(0, 0, &Imager::ImagerThread, this, 0, 0);
 	}
-	//_beginthreadex(0, 0, &Imager::ImagerThread, this, 0, 0);
 	RenderThread();
 
 	std::cout << "Writting to file" << std::endl;
