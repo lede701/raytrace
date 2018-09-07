@@ -24,13 +24,41 @@ As I progress more into the ray tracer book series hopefully more textures will 
 
 Since this is a feature of the engine I wanted to give some background to how it was attained.  Currently the only thread support is for windows based computers.  I'm using the function _beginthreadex which is in the windows.h definition file.  I do plan on migrating this to a different thread system when time permits so that it will work on Linux or Mac OSX but this isn't a priority for me at this time.
 
-### Main.cpp
+## The World
+
+Currently it is a mixed bag of class that make up the world.  I'm working on creating a scene object which will manage the render world and help process out rays.  The basic class for the world will be made up of Entities from the Entity class.  The original idea was to have a base class for all hitable objects.  This didn't make sense to me so I've been working slowly at replacing this code for the Entity design instead.
+
+### Proposed world Design
+
+1. Create a Scene class to manages all world entities.  This will replace the HitList class and will have methods for adding, removing, and animating entities.
+2. Entity class.  Currently this class has replaced the Hitable class and now supports key frames.
+3. EntityKey - This class manages the different transformations of the entity class that can happen over time.
+
+# Code
+
+Currently this code is written in Visual Studio 2017.  If you can get this code to work in other compilers I would like to hear from you and the steps you took to make it work.
+
+### main.cpp
 
 The main.cpp file contains some basic code and some settings for the image rendering process.  The settings some be self explanatory but if you need help understanding something please feel free to ask.
 
-## The World
+### Imager.cpp
 
-Currently it is a mixed bag of class that make up the world.  I'm working on creating a scene object which will manage the render world and help process out rays.  The basic class for the world will be made up of Entities from the Entity class.
+This is the main render class.  In future versions this class will be renamed to something more fitting to what it does.  When the render process is complete it will dump all the colors to a text file using the Mac OSX PPM file format.  There are several GREAT web sites I've used to display the image for Windows computers.  In future designs this process will be abstracted and the data array will be sent to a file IO class that will handle those details.
+
+This class is where all the multi-threading takes place.  It uses a mutex to manage locking og the vector queue so we don't trample on extracting data from the queue since it isn't multi-threaded friendly.  Next all color data is stored in an array for later rendering an image.  There are also some data members that are used for tracking how much of the rendering is complete.  These allow for the system to write out a . when a mile marker has been reached.
+
+There is also a parameter to control the number of threads to launch.  By default I've set this to 2 since most modern computers today have at least this many processors.  You can change this value in the main.cpp file after the class has been insrtantiated.
+
+Important rendering parameters:
+
+1. x - The x offset to start rendering.  This can be used if you only want to render a portion of the scene / world.
+2. y - The y offset to start rendering.  Same as the x offset.
+3. passes - How many samples for each [x,y] pixel to process.  The render engine uses a random amoun that then averages the color for that pixel.  This is also called Anti-aliasing.
+4. width - Width of the image in pixels
+5. height - Height of the image in pixels
+
+This should be enough to get the basic idea of how the render system works.  Play with the code, have fun with it and if you do something amazing please share it with me.
 
 ## Sorry
 

@@ -5,11 +5,11 @@ int main(int argv, char* argc[])
 {
 	Imager *img = new Imager();
 
-	img->numThread = 3;
-	img->passes = 100;
-	img->width = 300;
-	img->height = 150;
-	img->Render("demo.ppm");
+	img->numThread = 4;
+	img->passes = 400;
+	img->width = 800;
+	img->height = 300;
+	img->Render("renderme.ppm");
 
 	delete img;
 

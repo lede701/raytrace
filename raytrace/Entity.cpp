@@ -1,7 +1,5 @@
 #include "Entity.h"
 
-
-
 Entity::Entity()
 {
 	// Create an initial keyframe at the origin
@@ -9,7 +7,9 @@ Entity::Entity()
 	key->position = Vec3(0.0f, 0.0f, 0.0f);
 	key->rotation = Vec3(0.0f, 0.0f, 0.0f);
 	key->scale = Vec3(1.0f, 1.0f, 1.0f);
+	key->frame = 0;
 	Add(key);
+	CurrentKey = 0;
 }
 
 Entity::Entity(Vec3 position, Vec3 rotation, Vec3 scale)
@@ -18,6 +18,7 @@ Entity::Entity(Vec3 position, Vec3 rotation, Vec3 scale)
 	key->position = position;
 	key->rotation = rotation;
 	key->scale = scale;
+	key->frame = 0;
 	Add(key);
 	CurrentKey = 0;
 }
