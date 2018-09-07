@@ -4,6 +4,8 @@ Ray tracihng is a fun way to learn a little more about math and how it interacts
 
 This version of the code is multithreaded because I'm impatient and can't wait five minutes or longer for a render.
 
+![alt_text](https://github.com/lede701/raytrace/blob/master/raytraced.png?raw=true)
+
 ##Why?
 
 I like learning different things about programming and 3D which for years, and I mean 20 years or more, I've been facinated by the images that get produced by a good ray trace engine!  Just look at what Pixar does with RenderMan.  I've also been a hobbiest 3D modeler and thought what fun writing a ray tracer could be.
