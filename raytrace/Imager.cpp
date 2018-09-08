@@ -62,7 +62,7 @@ Hitable* Imager::RandomScene(int size)
 	Entity **list = new Entity*[size + 4];
 	int i = 0;
 
-	list[i++] = new Sphere(Vec3(0.0f, -1000.5f, 0.0f), 1000, new Lambertian(Vec3(0.5f, 0.5f, 0.5f)));
+	list[i++] = new Sphere(Vec3(0.0f, -1000.5f, 0.0f), 1000, new Lambertian(new CheckerColor(new SolidColor(Vec3(0.95f, 0.95f, 1.0f)), new SolidColor(Vec3(0, 1, 0)), 2.0f)));
 	for (int a = -11; a < 11; ++a)
 	{
 		for (int b = -11; b < 11; ++b)
@@ -74,7 +74,7 @@ Hitable* Imager::RandomScene(int size)
 				float r = 1.0f*drand48();
 				if (material < 0.8f)
 				{
-					list[i++] = new Sphere(center, r, new Lambertian(Vec3(drand48()*drand48(), drand48()*drand48(), drand48()*drand48())));
+					list[i++] = new Sphere(center, r, new Lambertian(new SolidColor(Vec3(drand48()*drand48(), drand48()*drand48(), drand48()*drand48()))));
 				}
 				else if(material < 0.95f)
 				{
@@ -90,8 +90,8 @@ Hitable* Imager::RandomScene(int size)
 		if (i >= size) break;
 	}
 
-	list[i++] = new Sphere(Vec3(0, 1, 0), 1.0f, new Dielectric(1.5f));
-	list[i++] = new Sphere(Vec3(-4, 1, 0), 1.0f, new Lambertian(Vec3(0.4f, 0.2f, 0.1f)));
+	list[i++] = new Sphere(Vec3(0, 1, 0), 1.0f, new Dielectric(1.25f));
+	list[i++] = new Sphere(Vec3(-4, 1, 0), 1.0f, new Lambertian(new SolidColor(Vec3(0.4f, 0.2f, 0.1f))));
 	list[i++] = new Sphere(Vec3(4, 1, 0), 1.0f, new Metal(Vec3(0.7f, 0.6f, 0.5f), 0.0f));
 
 	return new HitList(list, i);

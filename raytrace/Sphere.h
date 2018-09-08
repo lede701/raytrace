@@ -13,5 +13,6 @@ public:
 	~Sphere();
 
 	virtual bool hit(const Ray& r, float t_min, float t_max, HitRecord& hr) const;
+	void GetSphereUV(const Vec3& p, float& u, float &v);
 };
 

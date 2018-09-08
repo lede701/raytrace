@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Surface">
+      <UniqueIdentifier>{3a96b543-a52e-482b-8650-961d00dc06b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Surface">
+      <UniqueIdentifier>{880cfefe-45b8-40ea-b8d1-f7fce7bafd2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{c0f48acc-2bea-4326-b79b-75855ca90a0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities">
+      <UniqueIdentifier>{72b1f642-e66b-474f-aea0-8825060c4f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{b0474d08-121d-4211-9a85-fa86ddfa159b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{def8b2e1-fca2-468b-9a85-a37fb73187ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Imager.h">
@@ -30,41 +48,53 @@
     <ClInclude Include="HitRecord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sphere.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HitList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Materials.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lambertian.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Metal.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Dielectric.h">
+      <Filter>Header Files\Surface</Filter>
     </ClInclude>
-    <ClInclude Include="stdMaterials.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Lambertian.h">
+      <Filter>Header Files\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Materials.h">
+      <Filter>Header Files\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Metal.h">
+      <Filter>Header Files\Surface</Filter>
     </ClInclude>
     <ClInclude Include="SurfaceNormal.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Surface</Filter>
     </ClInclude>
-    <ClInclude Include="Dielectric.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="EntityKey.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidColor.h">
+      <Filter>Header Files\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="stdMaterials.h">
+      <Filter>Header Files\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckerColor.h">
+      <Filter>Header Files\Surface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,35 +113,41 @@
     <ClCompile Include="Hitable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sphere.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HitList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Materials.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lambertian.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lambertian.cpp">
+      <Filter>Source Files\Surface</Filter>
+    </ClCompile>
     <ClCompile Include="Metal.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Surface</Filter>
     </ClCompile>
     <ClCompile Include="SurfaceNormal.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Surface</Filter>
     </ClCompile>
     <ClCompile Include="Dielectric.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidColor.cpp">
+      <Filter>Source Files\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="AABB.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckerColor.cpp">
+      <Filter>Source Files\Surface</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

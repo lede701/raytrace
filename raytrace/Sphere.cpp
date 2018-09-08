@@ -1,5 +1,6 @@
 #include "Sphere.h"
-
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 
 Sphere::Sphere()
@@ -33,6 +34,7 @@ bool Sphere::hit(const Ray& r, float t_min, float t_max, HitRecord& hit) const
 		{
 			hit.t = tmp;
 			hit.p = r.point_at_parameter(hit.t);
+			//GetSphereUV((hit.p - pos / radius), hit.u, hit.v);
 			hit.normal = (hit.p - pos) / radius;
 			hit.pMat = pMat;
 			return true;
@@ -48,4 +50,12 @@ bool Sphere::hit(const Ray& r, float t_min, float t_max, HitRecord& hit) const
 		}
 	}
 	return false;
+}
+
+void Sphere::GetSphereUV(const Vec3& p, float& u, float &v)
+{
+	float phi = atan2(p.z(), p.x());
+	float theta = asin(p.y());
+	u = 1 - (phi + M_PI) / (2 * M_PI);
+	v = (theta + M_PI / 2) / M_PI;
 }

@@ -10,3 +10,6 @@ Vec3 Reflect(const Vec3& v, const Vec3& n);
 bool Refract(const Vec3& v, const Vec3& n, float ni_over_nt, Vec3& refracted);
 
 float Schlick(float cosine, float refIdx);
+
+float ffmin(float a, float b);
+float ffmax(float a, float b);

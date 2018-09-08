@@ -8,7 +8,7 @@ This version of the code is multi threaded because I'm impatient and can't wait 
 
 ## Why?
 
-I like learning different things about programming and 3D which for years, and I mean 20 years or more, I've been fascinated by the images that get produced by a good ray trace engine!  Just look at what Pixar does with RenderMan.  I've also been a hobbiest 3D modeler and thought what fun writing a ray tracer could be.
+I like learning different things about programming and 3D which for years, and I mean 20 years or more, I've been fascinated by the images that get produced by a good ray trace engine!  Just look at what Pixar does with RenderMan.  I've also been a hobbyist 3D modeler and thought what fun writing a ray tracer could be.
 
 ## Fun Stuff
 

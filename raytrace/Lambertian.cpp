@@ -2,13 +2,18 @@
 #include "Utilities.h"
 
 
-Lambertian::Lambertian(const Vec3& a) : albedo(a)
+Lambertian::Lambertian(Texture* texture)
 {
+	albedo = texture;
 }
 
 
 Lambertian::~Lambertian()
 {
+	if (albedo != NULL)
+	{
+		delete albedo;
+	}
 }
 
 
@@ -16,6 +21,6 @@ bool Lambertian::Scatter(const Ray& r_in, const HitRecord& hit, Vec3& attenuatio
 {
 	Vec3 target = hit.p + hit.normal + RandomInUnitSphere();
 	scattered = Ray(hit.p, target - hit.p);
-	attenuation = albedo;
+	attenuation = albedo->value(hit.u, hit.v, hit.p);
 	return true;
 }

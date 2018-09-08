@@ -1,3 +1,6 @@
+#include "Texture.h"
+#include "SolidColor.h"
+#include "CheckerColor.h"
 #include "Materials.h"
 #include "SurfaceNormal.h"
 #include "Lambertian.h"
