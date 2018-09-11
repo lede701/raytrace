@@ -31,6 +31,12 @@
     <Filter Include="Header Files\Physics">
       <UniqueIdentifier>{def8b2e1-fca2-468b-9a85-a37fb73187ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\data">
+      <UniqueIdentifier>{15b25fce-9264-4b16-b2a0-b0cffa0b9276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data">
+      <UniqueIdentifier>{a2114bec-1641-4b46-a360-ac156a543e16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Imager.h">
@@ -96,6 +102,15 @@
     <ClInclude Include="CheckerColor.h">
       <Filter>Header Files\Surface</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="AVLTree.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="AVLNode.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Imager.cpp">
@@ -148,6 +163,15 @@
     </ClCompile>
     <ClCompile Include="CheckerColor.cpp">
       <Filter>Source Files\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="AVLTree.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="AVLNode.cpp">
+      <Filter>Source Files\data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

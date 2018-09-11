@@ -140,6 +140,7 @@ void Imager::Render(std::string file)
 	RenderThread();
 	std::cout << std::endl;
 
+	// Write rendered image to file
 	std::cout << "Writting to file" << std::endl;
 	std::ofstream fout(file);
 	fout << "P3\n" << width << " " << height << "\n255\n";
@@ -158,6 +159,7 @@ void Imager::Render(std::string file)
 
 void Imager::RenderThread(bool isThread)
 {
+	// Process thread while there are elements in the queue
 	while (qVec.size() > 0)
 	{
 		// Lock queue for usage
@@ -171,6 +173,7 @@ void Imager::RenderThread(bool isThread)
 			int iy = int(pos.y());
 
 			Vec3 clr(0.0f, 0.0f, 0.0f);
+			// Process each pass, Anti-Aliasing algorythm
 			for (int s = 0; s < passes; ++s)
 			{
 				float u = float(ix + drand48()) / float(width);
@@ -179,21 +182,24 @@ void Imager::RenderThread(bool isThread)
 				Vec3 p = r.point_at_parameter(2.0f);
 				clr += Color(r, world, 0);
 			}
+			// Average the color for this pixel
 			clr /= float(passes);
+			// Adjest the brightness
 			clr = Vec3(sqrt(clr[0]), sqrt(clr[1]), sqrt(clr[2]));
 
+			// Conver 0.0 - 1.0 into RGB values
 			int ir = int(255.99 * clr[0]);
 			int ig = int(255.99 * clr[1]);
 			int ib = int(255.99 * clr[2]);
-
+			// Create array color index for pixel
 			int idx = ix + (iy * width);
+			// Create color vector
 			aClr[idx] = Vec3(ir, ig, ib);
 		}
 		else
 		{
 			mutex.unlock();
-		}
-		//fout << ir << " " << ig << " " << ib << std::endl;
+		}// Endif qVec.size() > 0
 
 		if (!isThread)
 		{
@@ -209,8 +215,9 @@ void Imager::RenderThread(bool isThread)
 				std::cout << ".";
 				nextComplete += nextStep;
 			}
-		}
-	}
+		}// Endif !isThread
+	}// End while queue as elements
+	// Check if called by dedicated thread
 	if (isThread)
 	{
 		_endthread();
