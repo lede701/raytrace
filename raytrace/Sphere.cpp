@@ -12,6 +12,10 @@ Sphere::Sphere(Vec3 cen, float r, Materials *mat)
 	Position(cen);
 	radius = r;
 	pMat = mat;
+
+	Vec3 p1 = cen - Vec3(r, r, r);
+	Vec3 p2 = cen + Vec3(r, r, r);
+	_aabb = AABB(p1, p2);
 }
 
 
@@ -58,4 +62,9 @@ void Sphere::GetSphereUV(const Vec3& p, float& u, float &v)
 	float theta = asin(p.y());
 	u = 1 - (phi + M_PI) / (2 * M_PI);
 	v = (theta + M_PI / 2) / M_PI;
+}
+
+AABB& Sphere::GetAABB() const
+{
+	return _aabb;
 }

@@ -10,6 +10,7 @@ Scene::Scene(Entity **e, int n)
 {
 	eList = e;
 	size = n;
+	Vec3 org(0.0f, 0.0f, 0.0f);
 
 
 }

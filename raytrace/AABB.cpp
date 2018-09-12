@@ -8,8 +8,17 @@ AABB::AABB()
 
 AABB::AABB(const Vec3& a, const Vec3& b)
 {
-	_min = a;
-	_max = b;
+	// Make sure vectors are in min and max format
+	if (a.length() < b.length())
+	{
+		_min = a;
+		_max = b;
+	}
+	else
+	{
+		_min = b;
+		_max = a;
+	}
 }
 
 AABB::~AABB()
