@@ -118,6 +118,7 @@
     <ClInclude Include="AABB.h" />
     <ClInclude Include="AVLNode.h" />
     <ClInclude Include="AVLTree.h" />
+    <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CheckerColor.h" />
     <ClInclude Include="Dielectric.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="Materials.h" />
     <ClInclude Include="Metal.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SolidColor.h" />
     <ClInclude Include="Sphere.h" />
@@ -144,6 +146,7 @@
     <ClCompile Include="AABB.cpp" />
     <ClCompile Include="AVLNode.cpp" />
     <ClCompile Include="AVLTree.cpp" />
+    <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CheckerColor.cpp" />
     <ClCompile Include="Dielectric.cpp" />
@@ -161,6 +164,9 @@
     <ClCompile Include="SurfaceNormal.cpp" />
     <ClCompile Include="Utilities.cpp" />
     <ClCompile Include="Vec3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="raytrace.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
