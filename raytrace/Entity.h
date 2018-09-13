@@ -28,6 +28,6 @@ public:
 	virtual Vec3& Scale(Vec3 scale);
 
 	virtual bool hit(const Ray& r, float t_min, float t_max, HitRecord& hr) const = 0;
-	virtual AABB& GetAABB() const = 0;
+	virtual AABB GetAABB() const = 0;
 };
 

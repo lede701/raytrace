@@ -1,7 +1,5 @@
 #include "Scene.h"
 
-
-
 Scene::Scene()
 {
 }
@@ -21,5 +19,5 @@ Scene::~Scene()
 
 bool Scene::hit(const Ray& r, float t_min, float t_max, HitRecord& hr) const
 {
-
+	return false;
 }

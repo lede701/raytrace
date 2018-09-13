@@ -64,7 +64,7 @@ void Sphere::GetSphereUV(const Vec3& p, float& u, float &v)
 	v = (theta + M_PI / 2) / M_PI;
 }
 
-AABB& Sphere::GetAABB() const
+AABB Sphere::GetAABB() const
 {
 	return _aabb;
 }
