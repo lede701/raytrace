@@ -66,4 +66,4 @@ Yes the code is a mess right now but I needed a place to start organizing it as 
 
 ## Code License
 
-For now this code is freely to use in anything you want.  Just don't ask me to support your use of this code.  If you find bugs please report them here so I can address these issues.
+Please read the LICENSE file for more details.
