@@ -35,7 +35,7 @@ Entity::~Entity()
 
 bool Entity::Add(EntityKey* key)
 {
-	key->keyId = KeyFrames.size();
+	key->keyId = int(KeyFrames.size());
 	KeyFrames.push_back(key);
 	return true;
 }

@@ -15,7 +15,7 @@ Camera::Camera()
 
 Camera::Camera(float vFov, float aspect)
 {
-	float theta = vFov * M_PI / 180.0f;
+	float theta = vFov * float(M_PI) / 180.0f;
 	float halfHeight = tan(theta / 2);
 	float halfWidth = aspect * halfHeight;
 	lowerLeftCorner = Vec3(-halfWidth, -halfHeight, -1.0f);
@@ -28,7 +28,7 @@ Camera::Camera(float vFov, float aspect)
 Camera::Camera(Vec3 lookFrom, Vec3 lookAt, Vec3 vup, float vFov, float aspect, float aperture, float focusDist)
 {
 	lenseRadius = aperture / 2;
-	float theta = vFov * M_PI / 180.0f;
+	float theta = vFov * float(M_PI) / 180.0f;
 	float halfHeight = tan(theta / 2);
 	float halfWidth = aspect * halfHeight;
 	origin = lookFrom;

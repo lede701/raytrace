@@ -24,7 +24,7 @@ float Perlin::PerlinInterp(Vec3 c[2][2][2], float u, float v, float w) const
 		{
 			for (int k = 0; k < 2; ++k)
 			{
-				Vec3 weight_v(u = i, v - j, w - k);
+				Vec3 weight_v(u - i, v - j, w - k);
 				accum += (i*uu + (1 - i)*(1 - uu))
 					* (j*vv + (1 - j)*(1 - vv))
 					* (k*ww + (1 - k)*(1 - ww)) * dot(c[i][j][k], weight_v);
@@ -39,9 +39,9 @@ float Perlin::noise(const Vec3& p) const
 	float u = p.x() - floor(p.x());
 	float v = p.y() - floor(p.y());
 	float w = p.z() - floor(p.z());
-	int i = floor(p.x());
-	int j = floor(p.y());
-	int k = floor(p.z());
+	int i = int(floor(p.x()));
+	int j = int(floor(p.y()));
+	int k = int(floor(p.z()));
 	Vec3 c[2][2][2];
 	for (int di = 0; di < 2; ++di)
 	{
@@ -87,7 +87,7 @@ int* Perlin::PerlingGeneratePerm()
 	int *p = new int[256];
 	for (int i = 0; i < 256; ++i)
 	{
-		p[i] - i;
+		p[i] = i;
 	}
 	Permute(p, 256);
 
