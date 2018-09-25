@@ -1,9 +1,9 @@
 #pragma once
 template<class T>
-class AVLNode
+struct AVLNode
 {
 public:
-	T* data;
+	T data;
 
 	AVLNode* left;
 	AVLNode* right;

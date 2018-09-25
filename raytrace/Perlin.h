@@ -20,5 +20,7 @@ public:
 	Vec3* PerlinGenerate(int n = 256);
 	void Permute(int* p, int n);
 	int* PerlingGeneratePerm();
+	float Turb(const Vec3& p, int depth = 7) const;
+
 };
 

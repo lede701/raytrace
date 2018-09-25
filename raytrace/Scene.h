@@ -7,7 +7,6 @@
 
 class Scene : public Hitable
 {
-	AVLTree<Vec3> tree;
 public:
 	Entity** eList;
 	int size;

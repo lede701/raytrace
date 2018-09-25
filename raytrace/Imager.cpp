@@ -3,12 +3,16 @@
 #include <chrono>
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
+#include <locale>
 #include <math.h>
 #include <process.h>
 #include <queue>
 #include <time.h>
 #include <Windows.h>
+
+#include "Scene.h"
 
 
 
@@ -110,25 +114,27 @@ void Imager::Render(std::string file)
 	// Make sure the queue is empty
 	qVec.empty();
 
-	// Setup the percent of processing calulations
+	// Setup the percent of processing calulations of object
 	iComplete = 0;
-	nextStep = 2;
-	nextComplete = nextStep;
+	nextComplete = nextStep = 2;
 
 	// Create world list
-	world = RandomScene(30);
+	world = RandomScene(50);
 	// Setup camera
 	Vec3 lookFrom(13, 2, 3);
 	Vec3 lookAt(0, 1, 0);
-	float focalDist = 10.0f;
-	float aperture = 0.1f;
+	float focalDist = 40.0f;
+	float aperture = 0.05f;
 	cam = Camera(lookFrom, lookAt, Vec3(0,1,0),20.0f, float(width)/float(height), aperture, focalDist);
 
-	std::cout << "Calculating initial rays" << std::endl;
-	for (int iy = height-1; iy >= y; -- iy)
+	int rayCount = height * width * passes;
+
+	std::cout.imbue(std::locale(""));
+	std::cout << "Calculating initial rays " << std::fixed << rayCount << std::endl;
+	for (int iy = height-1; iy >= y; --iy)
 	{
 		for (int ix = x; ix < width; ++ix) {
-			qVec.push(Vec3(ix, iy, 0));
+			qVec.push(Vec3(float(ix), float(iy), 0.0f));
 		}
 	}
 	std::cout << "Starting render engine" << std::endl;
@@ -194,7 +200,7 @@ void Imager::RenderThread(bool isThread)
 			// Create array color index for pixel
 			int idx = ix + (iy * width);
 			// Create color vector
-			aClr[idx] = Vec3(ir, ig, ib);
+			aClr[idx] = Vec3(float(ir), float(ig), float(ib));
 		}
 		else
 		{

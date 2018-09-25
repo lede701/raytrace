@@ -56,6 +56,21 @@ float Perlin::noise(const Vec3& p) const
 	return PerlinInterp(c, u, v, w);
 }
 
+float Perlin::Turb(const Vec3& p, int depth) const
+{
+	float accum = 0;
+	Vec3 temp_p = p;
+	float weight = 1.0f;
+	for (int i = 0; i < depth; ++i)
+	{
+		accum += weight * noise(temp_p);
+		weight *= 0.5;
+		temp_p *= 2;
+	}
+
+	return fabs(accum);
+}
+
 Vec3* Perlin::PerlinGenerate(int n)
 {
 	Vec3* p = new Vec3[n];
@@ -65,4 +80,27 @@ Vec3* Perlin::PerlinGenerate(int n)
 	}
 
 	return p;
+}
+
+int* Perlin::PerlingGeneratePerm()
+{
+	int *p = new int[256];
+	for (int i = 0; i < 256; ++i)
+	{
+		p[i] - i;
+	}
+	Permute(p, 256);
+
+	return p;
+}
+
+void Perlin::Permute(int* p, int n)
+{
+	for (int i = n - 1; i > 0; --i)
+	{
+		int target = int(drand48()*(i + 1));
+		int tmp = p[i];
+		p[i] = p[target];
+		p[target] = tmp;
+	}
 }
