@@ -94,8 +94,8 @@ Hitable* Imager::RandomScene(int size)
 		if (i >= size) break;
 	}
 
-	list[i++] = new Sphere(Vec3(0, 1, 0), 1.0f, new Dielectric(1.25f));
-	list[i++] = new Sphere(Vec3(-4, 1, 0), 1.0f, new Lambertian(new SolidColor(Vec3(0.4f, 0.2f, 0.1f))));
+	list[i++] = new Sphere(Vec3(0, 1, 0), 1.0f, new Dielectric(0.95f));
+	list[i++] = new Sphere(Vec3(-4, 1, 0), 1.0f, new Lambertian(new SolidColor(Vec3(0.3f, 0.2f, 0.8f))));
 	list[i++] = new Sphere(Vec3(4, 1, 0), 1.0f, new Metal(Vec3(0.7f, 0.6f, 0.5f), 0.0f));
 
 	return new HitList(list, i);
